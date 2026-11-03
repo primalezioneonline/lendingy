@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Дякуємо! Prima Lezione</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/analytics.js"></script>
+</head>
+<body><div style="background:#17140c;color:#ffc815;font:700 13px/1.4 system-ui,sans-serif;text-align:center;padding:6px 12px">Попередній перегляд. Для реклами адреса на primalezione.com</div>
+<main class="th-page">
+  <div class="th-top"><a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><b>prima lezione<span>італійська онлайн</span></b></a></div>
+  <div class="th-card">
+    <div class="co-head">
+      <span class="kind">Оплату отримано</span>
+      <b>Grazie! Ваш квиток у вас</b>
+      <span class="pr" id="th-what" hidden></span>
+    </div>
+    <div class="co-body th-body">
+      <img class="th-nino" src="../assets/nino_bravo.svg" alt="" width="96" height="108">
+      <ol class="th-steps">
+        <li><b>Доступ до курсу</b><span>Менеджерка уточнить ваш рівень і надішле запрошення на платформу на email, який ви вказали при оплаті. Лист не прийшов? Перевірте «Спам».</span></li>
+        <li><b>Індивідуальні уроки</b><span>Менеджерка напише вам, щоб узгодити час занять із викладачем.</span></li>
+        <li id="th-challenge" hidden><b>Виклик «Поверніть 50%»</b><span>90 днів рахуються з дня, коли відкриється доступ. Пройдіть усі уроки й підсумковий тест на 80%+.</span></li>
+      </ol>
+      <div class="th-contacts">
+        <span>Є питання — пишіть, ми поруч:</span>
+        <a href="tel:+380937470487">+380 93 747 04 87</a><a href="mailto:info@primalezione.com">info@primalezione.com</a>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+(function () {
+  window.plFirePurchase();
+  const o = window.plReadOrder();
+  if (!o) return;
+  const what = document.getElementById("th-what");
+  what.textContent = o.tariff;
+  what.hidden = false;
+  document.getElementById("th-challenge").hidden = o.tariff !== "«Самостійний»";
+})();
+</script>
+<script src="../assets/cookie.js"></script>
+</body>
+</html>

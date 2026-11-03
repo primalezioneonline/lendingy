@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<script>
+var META_PIXEL_ID = ""; // ID пікселя Meta (порожньо — нічого не надсилаємо)
+var GA4_ID = ""; // ID потоку GA4, G-… (порожньо — нічого не надсилаємо)
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Дякуємо за заявку — Prima Lezione</title>
+<meta name="description" content="Груповий курс італійської за 9 980 грн і розмовна практика в подарунок: економія 5 000 грн. Рівні A1–B2, 3 місяці, група 5–6 людей. Акція листопада.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffc815">
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script>
+var CONTENT_NAME = "hrupovyi-kurs";
+window.dataLayer = window.dataLayer || [];
+if (META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView', { content_name: CONTENT_NAME });
+}
+if (GA4_ID) {
+  var gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
+  document.head.appendChild(gaScript);
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', GA4_ID, { content_name: CONTENT_NAME });
+}
+</script>
+</head>
+<body class="thanks-page"><div style="background:#17140c;color:#ffc815;font:700 13px/1.4 system-ui,sans-serif;text-align:center;padding:6px 12px">Попередній перегляд. Для реклами адреса на primalezione.com</div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Prima Lezione — на сторінку курсу">
+      <img src="../img/logo.png" alt="" width="40" height="40">
+      <b>prima lezione<span>італійська онлайн</span></b>
+    </a>
+  </div>
+</header>
+<main class="th-page">
+  <div class="wrap">
+    <article class="th-card">
+      <div class="co-head">
+        <span class="kind">Заявку отримали</span>
+        <h1 style="font:inherit;margin:0"><b>Grazie! Скоро напишемо</b></h1>
+        <span class="pr" id="th-what">Граматика + розмова</span>
+      </div>
+      <div class="co-body th-body">
+        <img class="th-nino" src="../img/nino_bravo.svg" alt="" width="96" height="108">
+        <ol class="th-steps">
+          <li><b>Менеджерка напише вам</b><span>Зателефонує або напише й коротким тестом перевірить рівень.</span></li>
+          <li><b>Підберемо групу</b><span>Розповімо, коли стартує група вашого рівня — ранкова чи вечірня.</span></li>
+          <li><b>🎁 Розмовний курс</b><span>Якщо оплатите до 30 листопада, він ваш без доплати.</span></li>
+        </ol>
+        <div class="th-contacts">
+          <span>Не хочете чекати — пишіть самі:</span>
+          <a href="tel:+380937470487">+380 93 747 04 87</a><a href="mailto:info@primalezione.com">info@primalezione.com</a>
+        </div>
+        <a class="btn ghost th-back" href="../">На сторінку курсу</a>
+      </div>
+    </article>
+  </div>
+</main>
+<script>
+(function () {
+  var lead = null;
+  try { lead = JSON.parse(sessionStorage.getItem("pl_lead")); sessionStorage.removeItem("pl_lead"); } catch (e) {}
+  if (!lead) return; // прямий захід або оновлення сторінки: Lead не рахуємо
+  document.getElementById("th-what").textContent = lead.name + " · " + (lead.level === "не знаю" ? "рівень визначимо" : lead.level) + " · " + lead.time + " група";
+  window.dataLayer.push({ event: "Lead", content_name: CONTENT_NAME });
+  if (window.fbq) fbq("track", "Lead", { content_name: CONTENT_NAME });
+  if (window.gtag) gtag("event", "generate_lead", { content_name: CONTENT_NAME });
+})();
+</script>
+</body>
+</html>
